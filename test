@@ -1,3 +1,0 @@
-foreach(name as name)
-  return name->length;
-  
