@@ -1,6 +1,5 @@
 /**
   Dažādi triki un iespējas saistībā ar javascriptu
-  
 */
 
 
