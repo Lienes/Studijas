@@ -1,5 +1,6 @@
 /**
     Add 3rd party tools to view inside fuelPhP
+    allows you to define jQuery inside event/edit view 
 **/
 
 // controoler/event/edit 
@@ -23,6 +24,5 @@ private function add_rich_form_scripts() {
 	);
 }
 
-// Now you can use jQuery inside event/edit view 
-<script type="text/javascript">
-    $(document).ready();
+
+
