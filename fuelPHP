@@ -2,6 +2,11 @@
     Add 3rd party tools to view inside fuelPhP
 **/
 
+// controoler/event/edit 
+$this->add_rich_form_scripts();
+//add content to event/edit view
+$this->template->page_content = View::forge("event/edit", $data);
+
 //simple function to declare multiple source files
 private function add_rich_form_scripts() {
 
@@ -18,3 +23,6 @@ private function add_rich_form_scripts() {
 	);
 }
 
+// Now you can use jQuery inside event/edit view 
+<script type="text/javascript">
+    $(document).ready();
