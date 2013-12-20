@@ -1,0 +1,19 @@
+/**
+  Dažādi triki un iespējas saistībā ar javascriptu
+  
+*/
+
+
+// Formas input lauku papildus formatesanas riks - konkreta implementacija prieks fuelphp formas
+<script src="http://cdn.aloha-editor.org/latest/lib/aloha.js"
+	data-aloha-plugins="common/ui,
+	common/format,
+	common/list,
+	common/link">
+</script>
+<script>
+    Aloha.ready( function() {
+	var $ = Aloha.jQuery;
+	$('#description').aloha(); //piemero priks description formas input
+    });
+</script>
