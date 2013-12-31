@@ -44,5 +44,55 @@ User ID=myUsername;Password=myPassword;Trusted_Connection=False;" providerName="
  </connectionStrings>
  
  
- SOME CONFIGS: 
+ SOME important CONFIGS ===========================================================================: 
+ 
+ If plan on making sure the InitializeSimpleMembershipAttribute runs globally, it would be best practice to use the MVC 4 way in the App_Start\FilterConfig.cs;
+
+public class FilterConfig
+{
+  public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+  {
+    filters.Add(new HandleErrorAttribute());
+    filters.Add(new InitializeMembershipAttribute());
+  }
+}
+Keeps the Global.asax.cs clean from code that should probably be encapsulated the way MVC 4 is over previous versions. Leaves a nice clean:
+
+public class MvcApplication : System.Web.HttpApplication
+{
+    protected void Application_Start()
+    {
+        AreaRegistration.RegisterAllAreas();
+
+        WebApiConfig.Register(GlobalConfiguration.Configuration);
+        FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+        RouteConfig.RegisterRoutes(RouteTable.Routes);
+        BundleConfig.RegisterBundles(BundleTable.Bundles);
+        AuthConfig.RegisterAuth();
+    }
+}
+I also recommend changing the type to a AuthorizeAttribute (which is really what it does) because AuthorizeAttribute methods are executed before ActionFilterAttribute methods. (This should produce less problems if other ActionFilters are checking security, and allows derived custom AuthorizeAttributes).
+
+[AttributeUsage(AttributeTargets.Class | 
+                AttributeTargets.Method, 
+                AllowMultiple = false, 
+                Inherited = true)]
+public class InitializeMembershipAttribute : AuthorizeAttribute
+{
+    private static SimpleMembershipInitializer _initializer;
+    private static object _initializerLock = new object();
+    private static bool _isInitialized;
+
+    public override void OnAuthorization(AuthorizationContext filterContext)
+    {
+        // Ensure ASP.NET Simple Membership is initialized only once per app start
+        LazyInitializer.EnsureInitialized(ref _initializer, 
+          ref _isInitialized, 
+          ref _initializerLock);
+        base.OnAuthorization(filterContext);
+    }
+
+    private class SimpleMembershipInitializer ...
+    }
+}
  
