@@ -95,4 +95,5 @@ public class InitializeMembershipAttribute : AuthorizeAttribute
     private class SimpleMembershipInitializer ...
     }
 }
- 
+
+SOLVE Ensure ASP.NET Simple Membership is initialized only once :
