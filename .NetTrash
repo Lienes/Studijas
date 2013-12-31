@@ -34,3 +34,15 @@ UserProfile
 webpages_Membership
 webpages_Roles
 webpages_UserInRoles -  this table will keep track of the user using the open authentication to login to the application
+
+
+Connection to MS-SQL
+using System.Web.Configuration; 
+ <connectionStrings >
+<add name="myConnectionString" connectionString="Server=myServerAddress;Database=myDataBase;
+User ID=myUsername;Password=myPassword;Trusted_Connection=False;" providerName="System.Data.SqlClient"/>
+ </connectionStrings>
+ 
+ 
+ SOME CONFIGS: 
+ 
