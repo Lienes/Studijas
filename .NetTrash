@@ -1,1 +1,11 @@
 /** Trash */
+1. MVC4 Internet Aplication Simple Membership Provider 
+2. InitializeSimpleMembershipAttribute in Filters/InitializeSimpleMembershipAttribute.cs
+it takes care of initializing the simple membership provider, 
+specify the context class that should be used to perform the DB operations i.e. UsersContext
+
+!! WebSecurity.InitializeDatabaseConnection method will be used to specify the database 
+    using the connection string("DefaultConnection" in this case), 
+    the model which should be used to take the user profile information("UserProfile" in this case), 
+    the filed that should be used for login("UserName" in this case).
+
