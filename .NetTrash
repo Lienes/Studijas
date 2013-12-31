@@ -10,6 +10,7 @@ It will use the UserName field as the field required for login.
 It will then create some of the tables needed for the authentication and authorization
 
 
+
 !! WebSecurity.InitializeDatabaseConnection method will be used to specify the database 
     using the connection string("DefaultConnection" in this case), 
     the model which should be used to take the user profile information("UserProfile" in this case), 
@@ -25,7 +26,6 @@ public class AccountController : Controller
 
 }
 
-3. modify the connection string
 4. run the application and click on "register". 
 This will call the AccountController, which will in turn call the InitializeSimpleMembership constructor and will create the simple membership database along with the UserProfile table that we needed for our UserProfile model.
 
