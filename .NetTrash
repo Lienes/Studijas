@@ -33,4 +33,4 @@ Simple membership provider created a tables:
 UserProfile
 webpages_Membership
 webpages_Roles
-webpages_UserInRoles
+webpages_UserInRoles -  this table will keep track of the user using the open authentication to login to the application
