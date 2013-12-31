@@ -3,6 +3,12 @@
 2. InitializeSimpleMembershipAttribute in Filters/InitializeSimpleMembershipAttribute.cs
 it takes care of initializing the simple membership provider, 
 specify the context class that should be used to perform the DB operations i.e. UsersContext
+it will create the membership database in the location specified in the connection string
+It will create the table for our UserProfile model with all the columns for the properties specified in our UserProfile class
+It will use the UserId field to maintain the foreign key relationship with the auto generated tables. 
+It will use the UserName field as the field required for login. 
+It will then create some of the tables needed for the authentication and authorization
+
 
 !! WebSecurity.InitializeDatabaseConnection method will be used to specify the database 
     using the connection string("DefaultConnection" in this case), 
