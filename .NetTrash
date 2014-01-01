@@ -27,6 +27,13 @@ Application_ReleaseRequestState: called when request state should be stored
 Application_UpdateRequestCache: called when processing is complete & file is ready for cache
 Application_EndRequest: called when Web App ends
 
+Conditional events: 
+Application_Starts: when App start
+Application_Ends: when ends icluding things like closing db connection
+Session_Start:
+Session_Ends:
+Application_Error: called when unhandled error occured
+
 
 
 !! WebSecurity.InitializeDatabaseConnection method will be used to specify the database 
