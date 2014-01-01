@@ -9,7 +9,17 @@ It will use the UserId field to maintain the foreign key relationship with the a
 It will use the UserName field as the field required for login. 
 It will then create some of the tables needed for the authentication and authorization
 
+Global.asax file: 
+One per aplication 
+Every aplication file can see this class 
+There is 3 types of events: when page requested, when page gets sent and conditional events
 
+Request event types: 
+Aplcation_BeginRequest: called when new request received
+Aplication_AuthenticateRequest: called when requet is ready for authentication
+Aplication_AuthorizeRequest: called when requet is ready for authorisation
+Aplication_ResolveRequestCache: used by output cache to stop cached requests
+Aplication_PreRequestHandlerExecute: 
 
 !! WebSecurity.InitializeDatabaseConnection method will be used to specify the database 
     using the connection string("DefaultConnection" in this case), 
